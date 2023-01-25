@@ -83,8 +83,6 @@ public class CardTrick {
         System.out.println("-- Watching TV");
 
         System.out.println();
-        
-    
     }
 
 }
