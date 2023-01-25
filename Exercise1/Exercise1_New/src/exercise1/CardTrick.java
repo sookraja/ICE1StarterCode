@@ -20,49 +20,43 @@ public class CardTrick {
         for (int i = 0; i < hand.length; i++) {
             Card card = new Card();
             card.setValue((int)(1 + Math.random() * 13));
-            
             card.setSuit(Card.SUITS[(int)(0 + Math.random() * 3)]);
             // Hint: You can use Random -> random.nextInt(n) to get a random number between 0 and n-1 (inclusive)
             //       Don't worry about duplicates at this point
             hand [i] = card;
-            System.out.println(hand[i].getValue() + " of " + hand[i].getSuit());
-        }
-        
-
+        }  
         // insert code to ask the user for Card value and suit, create their card
         // and search the hand here. 
         // Hint: You can ask for values 1 to 10, and then
         //       11 for jack, 12 for queen, etc. (remember arrays are 0-based though)
         //       1 for Hearts, 2 for Diamonds, etc. (remember arrays are 0-based though)
         // 
-        Card [] user = new Card [1];
-        Card c1 = new Card();
         Scanner k = new Scanner(System.in);
-        
         System.out.print("Enter a card value between 1 - 13 (11 for Jack, 12 for Queen, 13 for King): ");
         int value = k.nextInt();
-        c1.setValue(value);
         
         while (value < 0 || value > 13){
             System.out.print("Card value must be an integer between 1 and 13. Enter a card value: ");
             value = k.nextInt();
-            c1.setValue(value);
         }
         
         System.out.print("Enter a suit : ");
         String suit = k.next();
-        c1.setSuit(suit);
         while (suit.isEmpty()){
             System.out.print("Suit cannot be empty. Enter a valid card suit: ");
             suit = k.next();
-            c1.setSuit(suit);
-        }
-        user [0] = c1;
-        System.out.println(user[0].getValue() + " of " +  user[0].getSuit());
-        // Then loop through the cards in the array to see if there's a match.
 
+        }
+
+        // Then loop through the cards in the array to see if there's a match.
+        
+        for (int i = 0; i < hand.length; i++){
+            if(hand[i].getValue() == value || hand[i].getSuit().equalsIgnoreCase(suit)){
+                printInfo();
+            }
+        }
+        }
         // If the guess is successful, invoke the printInfo() method below.
-    }
 
     /**
      * A simple method to print out personal information. Follow the instructions to 
