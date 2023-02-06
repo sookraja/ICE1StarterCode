@@ -51,7 +51,7 @@ public class CardTrick {
         // Then loop through the cards in the array to see if there's a match.
         
         for (int i = 0; i < hand.length; i++){
-            if(hand[i].getValue() == value || hand[i].getSuit().equalsIgnoreCase(suit)){
+            if(hand[i].getValue() == value && hand[i].getSuit().equalsIgnoreCase(suit)){
                 printInfo();
             }
         }
